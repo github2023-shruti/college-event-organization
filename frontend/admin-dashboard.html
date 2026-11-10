@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="title">Admin Dashboard</h1>
+      <div class="nav">
+        <button id="logoutBtn" class="button secondary">Logout</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="title">Create / Edit Event</h2>
+      <div class="row">
+        <input id="event_id" type="hidden">
+        <div>
+          <div class="label">Title</div>
+          <input id="title" class="input" placeholder="Event title">
+        </div>
+        <div>
+          <div class="label">Description</div>
+          <input id="description" class="input" placeholder="Event description">
+        </div>
+        <div>
+          <div class="label">Date</div>
+          <input id="event_date" type="date" class="input">
+        </div>
+        <div>
+          <div class="label">Location</div>
+          <input id="location" class="input" placeholder="Event location">
+        </div>
+        <div class="nav">
+          <button id="saveBtn" class="button">Save</button>
+          <button id="resetBtn" class="button secondary">Reset</button>
+        </div>
+        <div id="formMsg" class="subtitle"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="title">All Events <span id="count" class="badge">0</span></h2>
+      <ul id="events" class="list"></ul>
+    </div>
+  </div>
+  <script src="./js/utils.js"></script>
+  <script src="./js/admin-dashboard.js"></script>
+</body>
+</html>

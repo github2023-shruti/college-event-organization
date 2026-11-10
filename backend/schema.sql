@@ -1,0 +1,30 @@
+CREATE DATABASE IF NOT EXISTS college_events CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE college_events;
+
+CREATE TABLE IF NOT EXISTS admins (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(190) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  created_at DATETIME NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS students (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(190) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  created_at DATETIME NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS events (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(200) NOT NULL,
+  description TEXT NULL,
+  event_date DATE NOT NULL,
+  location VARCHAR(200) NULL,
+  created_by INT NULL,
+  created_at DATETIME NOT NULL,
+  INDEX (event_date),
+  CONSTRAINT fk_events_admin FOREIGN KEY (created_by) REFERENCES admins(id) ON DELETE SET NULL
+) ENGINE=InnoDB;
